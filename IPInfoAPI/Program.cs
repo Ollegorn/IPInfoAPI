@@ -1,4 +1,5 @@
 using IPInfoLibrary;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,9 @@ builder.Services.AddSingleton<IIPInfoProvider>(serviceProvider =>
 
     return new IPInfoProvider(apiKey);
 });
+
+builder.Services.AddDbContext<IPInfoDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
