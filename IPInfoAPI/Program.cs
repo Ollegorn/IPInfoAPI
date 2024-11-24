@@ -1,3 +1,4 @@
+using IPInfoAPI.Repositories;
 using IPInfoLibrary;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,6 +16,8 @@ builder.Services.AddSingleton<IIPInfoProvider>(serviceProvider =>
 
 builder.Services.AddDbContext<IPInfoDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddScoped<IIPDetailsRepository, IPDetailsRepository>();
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
