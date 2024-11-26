@@ -1,4 +1,4 @@
-﻿using IPInfoAPI.Data;
+﻿using IPInfoAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
 public class IPInfoDbContext : DbContext

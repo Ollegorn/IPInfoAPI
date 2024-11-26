@@ -20,4 +20,8 @@
     <ProjectReference Include="..\..\IpInfoLibrary\IPInfoLibrary\IPInfoLibrary.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

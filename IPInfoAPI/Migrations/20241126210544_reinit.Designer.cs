@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IPInfoAPI.Migrations
 {
     [DbContext(typeof(IPInfoDbContext))]
-    [Migration("20241124171912_init")]
-    partial class init
+    [Migration("20241126210544_reinit")]
+    partial class reinit
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,7 +23,7 @@ namespace IPInfoAPI.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("IPInfoAPI.Data.IPDetailsEntity", b =>
+            modelBuilder.Entity("IPInfoAPI.Models.IPDetailsEntity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -47,13 +47,11 @@ namespace IPInfoAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Latitude")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<double>("Latitude")
+                        .HasColumnType("float");
 
-                    b.Property<string>("Longitude")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<double>("Longitude")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 

@@ -1,4 +1,5 @@
 using IPInfoAPI.Repositories;
+using IPInfoAPI.Services;
 using IPInfoLibrary;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,6 +18,9 @@ builder.Services.AddSingleton<IIPInfoProvider>(serviceProvider =>
 builder.Services.AddDbContext<IPInfoDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<IIPDetailsRepository, IPDetailsRepository>();
+
+builder.Services.AddSingleton<BatchProcessingService>();
+builder.Services.AddHostedService(sp => sp.GetRequiredService<BatchProcessingService>());
 
 
 builder.Services.AddControllers();

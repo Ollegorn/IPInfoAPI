@@ -1,10 +1,9 @@
-﻿using IPInfoAPI.Data;
+﻿using IPInfoAPI.Models;
 
-namespace IPInfoAPI.Repositories
+namespace IPInfoAPI.Repositories;
+
+public interface IIPDetailsRepository
 {
-    public interface IIPDetailsRepository
-    {
-        Task<IPDetailsEntity> GetIPDetailsAsync(string ip);
-        Task AddIPDetailsAsync(IPDetailsEntity ipDetails);
-    }
+    Task<IPDetailsEntity> GetIPDetailsAsync(string ip);
+    Task AddIPDetailsAsync(IPDetailsEntity ipDetails);
 }
